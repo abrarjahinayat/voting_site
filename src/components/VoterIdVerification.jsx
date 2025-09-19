@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import team1 from '../images/team1.png';
 import team2 from '../images/team2.png';
 import team3 from '../images/team3.png';
+import { useNavigate } from 'react-router';
+import toast, { Toaster } from 'react-hot-toast';
 
-const Desktop1 = () => {
+const VoterIdVerification = () => {
   const [voterId, setVoterId] = useState('');
   const [selectedParty, setSelectedParty] = useState('');
 
@@ -49,11 +51,13 @@ const Desktop1 = () => {
     setSelectedParty(partyId);
   };
 
+  const navigate = useNavigate();
+
   const handleNext = () => {
     if (voterId ) {
-      alert(`Vote submitted for ${parties.find(p => p.id === selectedParty)?.name}`);
+      navigate('/face-verification');
     } else {
-      alert('Please enter your voter ID');
+     toast.error("Please enter your voter ID")
     }
   };
 
@@ -80,11 +84,12 @@ const Desktop1 = () => {
           {/* Next Button */}
           <button
             onClick={handleNext}
-            className="w-32 py-3 bg-green-500 hover:bg-green-600 text-white font-medium rounded-md transition-colors duration-200"
+            className="w-50 py-3 bg-green-500 border border-black/50 hover:bg-green-600 text-black cursor-pointer font-medium rounded-md transition-colors duration-200"
           >
             NEXT
           </button>
         </div>
+         <Toaster />
         
         {/* Divider */}
         <div className="border-b border-gray-400 mb-4"></div>
@@ -123,4 +128,4 @@ const Desktop1 = () => {
   );
 };
 
-export default Desktop1;
+export default VoterIdVerification;

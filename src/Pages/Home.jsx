@@ -1,10 +1,10 @@
 import React from 'react'
-import Desktop1 from '../components/Desktop1'
+import VoterIdVerification from '../components/VoterIdVerification'
 
 const Home = () => {
   return (
     <div >
-        <Desktop1/>
+        <VoterIdVerification/>
     </div>
   )
 }
