@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import { useNavigate } from 'react-router';
 
 const VotePanel = () => {
+    const navigate = useNavigate();
   const [selectedParty, setSelectedParty] = useState('');
 
   const parties = [
@@ -20,6 +22,7 @@ const VotePanel = () => {
     if (selectedParty) {
       const selected = parties.find(p => p.id === selectedParty);
        toast.success(`আপনি ${selected.bengaliName} নির্বাচন করেছেন`)
+        navigate('/confirm-vote');
     } else {
       toast.error('অনুগ্রহ করে একটি দল নির্বাচন করুন');
     }

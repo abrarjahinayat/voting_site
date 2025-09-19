@@ -54,11 +54,15 @@ const VoterIdVerification = () => {
   const navigate = useNavigate();
 
   const handleNext = () => {
-    if (voterId ) {
-      navigate('/face-verification');
-    } else {
-     toast.error("Please enter your voter ID")
-    }
+  if (voterId) {
+  if (voterId.length === 10 || voterId.length === 16) {
+    navigate('/face-verification');
+  } else {
+    toast.error("Voter ID must be 10 or 16 digits");
+  }
+} else {
+  toast.error("Please enter your voter ID");
+}
   };
 
   return (

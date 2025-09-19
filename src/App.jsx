@@ -6,6 +6,8 @@ import {
 import Home from './Pages/Home';
 import FaceVerification from './components/FaceVerification';
 import VotePanel from './components/VotePanel';
+import ConfirmVote from './components/ConfirmVote';
+import HoldToVote from './components/HoldToVote';
 
 
 const router = createBrowserRouter([
@@ -18,6 +20,12 @@ const router = createBrowserRouter([
   },  {
     path: "vote-panel",
     element: <VotePanel/>,
+  }, {
+    path: "confirm-vote",
+    element: <ConfirmVote/>,
+  }, {
+    path: "hold-to-vote",
+    element: <HoldToVote/>,
   }, 
 ]);
 const App = () => {
